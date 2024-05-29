@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export class Person {
 
     constructor(
@@ -15,12 +17,21 @@ export class Person {
         console.log(`La persona ${this.name} está trabajando`);
         this.sleep();
     }
-    
+
     // método privado
     private sleep() {
         console.log('La persona está dormida');
+    }
+
+    async getFeatures() {
+        // desestructuración
+        const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon/4');
+        return data.moves.length;
     }
 }
 
 export const employee = new Person(1, 'Franz');
 console.log(employee);
+
+const moves = await employee.getFeatures();
+console.log(moves);
