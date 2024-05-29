@@ -5,6 +5,7 @@ import { setupCounter } from './counter.ts'
 
 import { name, age } from './fundamentals/01-types.ts';
 import { person } from './fundamentals/02-objects.ts';
+import { employee } from './fundamentals/03-clasess.ts';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -17,6 +18,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <h1>Vite + TypeScript</h1>
     <h2>${name} + ${age}</h2>
     <h3>Objeto ${person.name}</h3>
+    <h3>Instancia de clase ${employee.name}</h3>
     <div class="card">
       <button id="counter" type="button"></button>
     </div>

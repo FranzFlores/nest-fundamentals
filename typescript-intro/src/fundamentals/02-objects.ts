@@ -15,3 +15,6 @@ export const person: Person = {
     id: 1,
     name: 'Franz'
 }
+
+export const people: Person[] = [];
+people.push(person);
