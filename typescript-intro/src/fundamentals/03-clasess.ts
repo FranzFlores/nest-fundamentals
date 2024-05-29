@@ -1,5 +1,7 @@
 import axios from "axios";
 
+import { PokeapiResponse } from "../interfaces/pokeapi-response.interface";
+
 export class Person {
 
     constructor(
@@ -25,7 +27,7 @@ export class Person {
 
     async getFeatures() {
         // desestructuración
-        const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon/4');
+        const { data } = await axios.get<PokeapiResponse>('https://pokeapi.co/api/v2/pokemon/4');
         return data.moves.length;
     }
 }
