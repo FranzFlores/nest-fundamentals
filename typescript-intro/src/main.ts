@@ -6,6 +6,7 @@ import { setupCounter } from './counter.ts'
 import { name, age } from './fundamentals/01-types.ts';
 import { person } from './fundamentals/02-objects.ts';
 import { employee } from './fundamentals/03-clasess.ts';
+import { franz } from './fundamentals/05-decorators.ts';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -23,6 +24,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <button id="counter" type="button"></button>
     </div>
     <p class="read-the-docs">
+      ${franz}
       Click on the Vite and TypeScript logos to learn more
     </p>
   </div>
