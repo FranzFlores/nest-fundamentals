@@ -10,7 +10,7 @@ export class CarsController {
 
     @Post('/create')
     createCar(@Body() createCarDto: CreateCarDto) {
-        return createCarDto;
+        return this.carsService.create(createCarDto);
     }
 
     @Get('/all')
