@@ -3,6 +3,8 @@ import { AuthGuard } from '@nestjs/passport';
 
 import { AuthService } from './auth.service';
 import { CreateUserDto, SignInDto } from './dto';
+import { User } from './entities/user.entity';
+import { RawHeaders, GetUser } from './decorators';
 
 
 @Controller('/auth')
@@ -21,7 +23,7 @@ export class AuthController {
 
   @Get('/test')
   @UseGuards(AuthGuard())
-  testingPrivateRoute() {
+  testingPrivateRoute(@GetUser() user: User, @RawHeaders() header: any) {
     return {
       ok: true,
       message: 'Prueba exitosa'
