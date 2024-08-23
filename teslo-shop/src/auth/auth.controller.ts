@@ -11,7 +11,7 @@ import { RoleProtected } from './decorators/role-protected.decorator';
 
 @Controller('/auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService) { }
 
   @Post('/sign-up')
   create(@Body() createUserDto: CreateUserDto) {
@@ -21,6 +21,12 @@ export class AuthController {
   @Post('/sign-in')
   signIn(@Body() signInDto: SignInDto) {
     return this.authService.signIn(signInDto);
+  }
+
+  @Get('/check-auth-status')
+  @Auth()
+  checkAuthStatus(@GetUser() user: User) {
+    return this.authService.checkAuthStatus(user);
   }
 
   @Get('/test')
@@ -42,7 +48,7 @@ export class AuthController {
     };
   }
 
-  @Get('/private') 
+  @Get('/private')
   @Auth()
   testingPrivateRoute3() {
     return {
