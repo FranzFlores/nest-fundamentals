@@ -18,6 +18,6 @@ export class MessagesWsService {
     }
 
     getConnectedClients() {
-        return Object.keys(this.connectedClients).length;
+        return Object.keys(this.connectedClients);
     }
 }
