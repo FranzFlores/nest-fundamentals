@@ -1,9 +1,17 @@
 import { Manager, Socket } from "socket.io-client"
 
-export const connectToServer = () => {
-    const manager = new Manager('http://localhost:3000/socket.io/socket.io.js');
+let socket: Socket;
+export const connectToServer = (token: string) => {
+    const manager = new Manager('http://localhost:3000/socket.io/socket.io.js', {
+        extraHeaders: {
+            authentication: token
+        }
+    });
 
-    const socket = manager.socket('/');
+    // Borrar todos los sockets anteriores antes de tener uno nuevo
+    socket?.removeAllListeners();
+    socket = manager.socket('/');
+
     addListeners(socket);
 }
 
